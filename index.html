@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarvesh Khimesra</title>
+  <meta name="description" content="Sarvesh Khimesra. AI experimenter, builder, poet, sports nerd. Let's connect.">
+  <meta property="og:title" content="Sarvesh Khimesra">
+  <meta property="og:description" content="I experiment with AI and build things that excite me.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#2d8f6f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Floating Social Dock -->
+  <nav class="social-dock" aria-label="Social links">
+    <a href="https://www.linkedin.com/in/sarvesh-khimesra/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon">
+      <img src="assets/icons/linkedin.svg" alt="LinkedIn">
+    </a>
+    <a href="https://www.instagram.com/sarveshrf/" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon">
+      <img src="assets/icons/instagram.svg" alt="Instagram">
+    </a>
+    <a href="https://x.com/SKhimesra" target="_blank" rel="noopener" aria-label="Twitter" class="social-icon">
+      <img src="assets/icons/twitter.svg" alt="Twitter">
+    </a>
+  </nav>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Postcard Sections -->
+  <main class="postcards">
+    <section class="postcard postcard--hero" id="hero">
+      <div class="hero-pattern"></div>
+      <div class="accent-photo accent-photo--left" style="--rotation: -3deg; bottom: 20%;">
+        <img src="assets/images/photos/IMG_6775.jpg" alt="Sarvesh on Dublin bridge at blue hour">
+      </div>
+      <div class="hero-content">
+        <p class="hero-greeting">नमस्ते</p>
+        <h1 class="hero-name">I'm <span class="highlight">Sarvesh</span></h1>
+        <p class="hero-tagline">I experiment with AI and build things that excite me.</p>
+        <div class="scroll-hint">
+          <span>scroll down</span>
+          <div class="scroll-arrow">↓</div>
+        </div>
+      </div>
+    </section>
+    <section class="postcard postcard--about" id="about">
+      <div class="accent-photo accent-photo--right" style="--rotation: 3deg;">
+        <img src="assets/images/photos/IMG_8028.jpg" alt="Sarvesh in the mountains">
+      </div>
+      <div class="card-inner">
+        <h2>So, who's this guy?</h2>
+        <p>I've never really been a one lane kind of person. Right now I'm spending most of my time with <strong>AI</strong>, playing around with tools like Claude Code and Codex, trying to turn random ideas into actual features and products.</p>
+        <p>I recently interviewed for a GTM AI builder role at a major FinTech unicorn and it made one thing clear to me: I want to work where <strong>technology meets go-to-market strategy</strong>.</p>
+        <p>I'm also not just a tech person. I spent time preparing for UPSC and that shaped how I think. <strong>Multidisciplinary, curious, always connecting dots</strong> across history, economics, and culture. I love finding patterns in unexpected places.</p>
+        <p>I'm looking for the right opportunity and the right people to work with. If you're someone who thinks about this stuff too, let's talk.</p>
+      </div>
+    </section>
+    <section class="postcard postcard--building" id="building">
+      <div class="card-inner card-inner--alt">
+        <h2>What I'm building</h2>
+        <p>I think the best way to learn AI is to just build stuff with it. So that's what I'm doing.</p>
+        <div class="build-items">
+          <div class="build-item">
+            <div>
+              <strong>AI Experiments</strong>
+              <p>I take rough ideas and try to turn them into working prototypes using Claude Code, Codex, and whatever tool makes sense.</p>
+            </div>
+          </div>
+          <div class="build-item">
+            <div>
+              <strong>GTM + AI</strong>
+              <p>I'm really interested in how AI is changing go-to-market. Positioning, outreach, product-led growth, all of it.</p>
+            </div>
+          </div>
+          <div class="build-item">
+            <div>
+              <strong>Looking for my tribe</strong>
+              <p>If you're building something at the intersection of AI and business, I'd genuinely love to hear from you.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="postcard postcard--shayari" id="shayari">
+      <h2 class="section-title">मेरी शायरी</h2>
+      <p class="section-subtitle">click to listen, in my voice</p>
+      <div class="shayari-cards">
+        <div class="shayari-card" data-audio="assets/audio/shayari-1.mp3">
+          <p class="shayari-text">बेसब्र, बेखबर, बेइंतहां यू ही चलता जा रहा।<br>कुछ पाने की आस लिए यू ही भटकता जा रहा।।<br>पहुंच जाना है उस मंज़िल के क़रीब जिसका कोई ठिकाना ना है।<br>पर ये तो बता दो उसके बाद का फसाना क्या है।।</p>
+          <button class="play-btn" aria-label="Play shayari">
+            <span class="play-icon">▶</span>
+            <span class="pause-icon" hidden>⏸</span>
+          </button>
+          <div class="sound-wave" hidden>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="shayari-card" data-audio="assets/audio/shayari-2.mp3">
+          <p class="shayari-text">उस हरकत-ए-शाम में तुम भी मत खो जाना<br>उस मंज़र-ए-वतन में तुम भी मत भूल जाना<br>ये नीला समंदर नहीं, काला दलदल है ग़ालिब मियाँ<br>तुम तो "कमल" की तरह ही खिल के आना</p>
+          <button class="play-btn" aria-label="Play shayari">
+            <span class="play-icon">▶</span>
+            <span class="pause-icon" hidden>⏸</span>
+          </button>
+          <div class="sound-wave" hidden>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="shayari-card" data-audio="assets/audio/shayari-3.mp3">
+          <p class="shayari-text">उनके ईमान पर अर्ज़ करने की अब फ़ुर्सत नहीं है<br>उनकी फ़ितरतों पर इशारा करने का अब खर्च नहीं है<br>क्या हुआ ग़ालिब तुम्हारे उन बेइंतहाँ लफ़्ज़ो को<br>अफ़सोस है या फिर बेबसी के हालातों की बेरहम चुप्पी!?</p>
+          <button class="play-btn" aria-label="Play shayari">
+            <span class="play-icon">▶</span>
+            <span class="pause-icon" hidden>⏸</span>
+          </button>
+          <div class="sound-wave" hidden>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="postcard postcard--song" id="song">
+      <div class="song-player">
+        <div class="song-cover">
+          <div class="song-cover-placeholder">♪</div>
+        </div>
+        <h2 class="song-title">Maafi</h2>
+        <p class="song-artist">by Sarvesh Khimesra</p>
+        <div class="song-controls">
+          <button class="song-play-btn" data-audio="assets/audio/song.mp3" aria-label="Play song">
+            <span class="play-icon">▶</span>
+            <span class="pause-icon" hidden>⏸</span>
+          </button>
+        </div>
+        <div class="song-progress">
+          <span class="song-time song-current">0:00</span>
+          <div class="song-bar">
+            <div class="song-bar-fill"></div>
+          </div>
+          <span class="song-time song-duration">0:00</span>
+        </div>
+      </div>
+    </section>
+    <section class="postcard postcard--sports" id="sports">
+      <h2 class="section-title">The sporty side</h2>
+      <p class="section-subtitle">if there's a ball and some competition, count me in</p>
+      <div class="polaroids">
+        <div class="polaroid" style="--rotation: -3deg;">
+          <div class="polaroid-image">
+            <img src="assets/images/photos/tennis.jpg" alt="Sarvesh playing tennis">
+          </div>
+          <p class="polaroid-caption">Tennis, my happy place</p>
+        </div>
+        <div class="polaroid" style="--rotation: 2deg;">
+          <div class="polaroid-image">
+            <img src="assets/images/photos/cricket.jpg" alt="Sarvesh at IPL match in RCB jersey">
+          </div>
+          <p class="polaroid-caption">Cricket, RCB forever</p>
+        </div>
+        <div class="polaroid" style="--rotation: -1.5deg;">
+          <div class="polaroid-image">
+            <img src="assets/images/photos/tennis-duo.jpg" alt="Sarvesh with tennis partner">
+          </div>
+          <p class="polaroid-caption">Post match smiles</p>
+        </div>
+      </div>
+    </section>
+    <section class="postcard postcard--wanderlust" id="wanderlust">
+      <h2 class="section-title">Wanderlust & history nerd</h2>
+      <p class="section-subtitle">Ireland in winter was everything and I want more</p>
+      <div class="polaroids polaroids--grid">
+        <div class="polaroid" style="--rotation: -2deg;">
+          <div class="polaroid-image">
+            <img src="assets/images/photos/IMG_8226.jpg" alt="Sarvesh on a bridge in an Irish village">
+          </div>
+          <p class="polaroid-caption">Irish village vibes</p>
+        </div>
+        <div class="polaroid" style="--rotation: 1.5deg;">
+          <div class="polaroid-image">
+            <img src="assets/images/photos/IMG_8033.jpg" alt="Watching sheep by a lake in Ireland">
+          </div>
+          <p class="polaroid-caption">Sheep, lakes & solitude</p>
+        </div>
+        <div class="polaroid" style="--rotation: -1deg;">
+          <div class="polaroid-image">
+            <img src="assets/images/photos/IMG_8254.jpg" alt="Coastal Ireland with dramatic sky">
+          </div>
+          <p class="polaroid-caption">Wild Atlantic coast</p>
+        </div>
+        <div class="polaroid" style="--rotation: 2.5deg;">
+          <div class="polaroid-image">
+            <img src="assets/images/photos/IMG_8218.jpg" alt="Murphy's Bar, classic Irish pub">
+          </div>
+          <p class="polaroid-caption">Murphy's Bar, cheers!</p>
+        </div>
+        <div class="polaroid" style="--rotation: -1.5deg;">
+          <div class="polaroid-image">
+            <img src="assets/images/photos/IMG_8402.jpg" alt="Traditional Irish thatched cottage">
+          </div>
+          <p class="polaroid-caption">Old Ireland, still standing</p>
+        </div>
+        <div class="polaroid" style="--rotation: 1deg;">
+          <div class="polaroid-image">
+            <img src="assets/images/photos/ireland-group.jpg" alt="Sarvesh with family in Ireland winter">
+          </div>
+          <p class="polaroid-caption">Winter squad</p>
+        </div>
+        <div class="polaroid" style="--rotation: -2deg;">
+          <div class="polaroid-image">
+            <img src="assets/images/photos/IMG_6775.jpg" alt="Sarvesh on Dublin bridge at dusk">
+          </div>
+          <p class="polaroid-caption">Dublin at blue hour</p>
+        </div>
+        <div class="polaroid" style="--rotation: 1.5deg;">
+          <div class="polaroid-image">
+            <img src="assets/images/photos/IMG_7532.jpg" alt="Ice skating rink in Ireland">
+          </div>
+          <p class="polaroid-caption">Ice skating vibes</p>
+        </div>
+        <div class="polaroid" style="--rotation: -1deg;">
+          <div class="polaroid-image">
+            <img src="assets/images/photos/IMG_7444.jpg" alt="Rocky Irish coastline">
+          </div>
+          <p class="polaroid-caption">Where the land meets the sea</p>
+        </div>
+        <div class="polaroid" style="--rotation: 2deg;">
+          <div class="polaroid-image">
+            <img src="assets/images/photos/IMG_7721.jpg" alt="Irish countryside stream">
+          </div>
+          <p class="polaroid-caption">Countryside wandering</p>
+        </div>
+        <div class="polaroid" style="--rotation: 0.5deg;">
+          <div class="polaroid-image">
+            <img src="assets/images/photos/IMG_8870.jpg" alt="Sarvesh having a Guinness in Ireland">
+          </div>
+          <p class="polaroid-caption">First Guinness, won't be the last</p>
+        </div>
+        <div class="polaroid" style="--rotation: -1.5deg;">
+          <div class="polaroid-image">
+            <img src="assets/images/photos/IMG_7949.jpg" alt="Sarvesh at seaside pier">
+          </div>
+          <p class="polaroid-caption">By the harbour</p>
+        </div>
+      </div>
+    </section>
+    <section class="postcard postcard--connect" id="connect">
+      <div class="accent-photo accent-photo--left" style="--rotation: -4deg;">
+        <img src="assets/images/photos/IMG_2279.jpg" alt="Sarvesh at night">
+      </div>
+      <div class="card-inner connect-card">
+        <h2>Let's connect</h2>
+        <p>If you're into AI, GTM strategy, or just want to chat about history, tennis, or shayari, I'd love to hear from you.</p>
+        <div class="connect-links">
+          <a href="https://www.linkedin.com/in/sarvesh-khimesra/" target="_blank" rel="noopener" class="connect-link">
+            <img src="assets/icons/linkedin.svg" alt=""> LinkedIn
+          </a>
+          <a href="https://www.instagram.com/sarveshrf/" target="_blank" rel="noopener" class="connect-link">
+            <img src="assets/icons/instagram.svg" alt=""> Instagram
+          </a>
+          <a href="https://x.com/SKhimesra" target="_blank" rel="noopener" class="connect-link">
+            <img src="assets/icons/twitter.svg" alt=""> Twitter / X
+          </a>
+        </div>
+        <p class="connect-signoff">— Sarvesh ☕</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

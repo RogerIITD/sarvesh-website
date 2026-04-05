@@ -1,0 +1,732 @@
+/* === CSS Custom Properties === */
+:root {
+  --bg: #f0f7f4;
+  --primary: #2d8f6f;
+  --secondary: #1a2744;
+  --accent: #3b82c4;
+  --sporty: #f59e0b;
+  --text: #1e293b;
+  --card-parchment: #e8f5ef;
+  --card-linen: #dff0ea;
+  --card-chai: #c6e4d5;
+  --font-heading: Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-shayari: 'Tiro Devanagari Hindi', serif;
+}
+
+/* === Reset & Base === */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+/* === Scroll Snap Container === */
+.postcards {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+/* === Base Postcard Section === */
+.postcard {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 4rem;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.postcard.visible {
+  opacity: 1;
+}
+
+/* === Scroll Progress Bar === */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 100;
+  background: rgba(45, 143, 111, 0.15);
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--primary);
+  transition: width 0.1s linear;
+}
+
+/* === Floating Social Dock === */
+.social-dock {
+  position: fixed;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  z-index: 50;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(26, 39, 68, 0.08);
+  opacity: 0.5;
+  transition: opacity 0.3s, background 0.3s, transform 0.3s;
+}
+
+.social-icon:hover {
+  opacity: 1;
+  background: rgba(45, 143, 111, 0.15);
+  transform: scale(1.1);
+}
+
+.social-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+/* === Hero Card === */
+.postcard--hero {
+  background: linear-gradient(135deg, var(--secondary), #0f4c3a);
+  color: #f0f7f4;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 20px,
+    rgba(255,255,255,0.03) 20px,
+    rgba(255,255,255,0.03) 22px
+  );
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-greeting {
+  font-family: var(--font-shayari);
+  font-size: 2rem;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.hero-name {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+.hero-name .highlight {
+  color: var(--sporty);
+  text-decoration: underline;
+  text-decoration-color: rgba(245, 158, 11, 0.5);
+  text-underline-offset: 8px;
+}
+
+.hero-tagline {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  opacity: 0.85;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.scroll-hint {
+  margin-top: 3rem;
+  font-size: 0.85rem;
+  opacity: 0.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.scroll-arrow {
+  animation: bounce 2s infinite;
+  font-size: 1.2rem;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* === Card Inner (reusable text card) === */
+.card-inner {
+  max-width: 640px;
+  background: var(--card-parchment);
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(26, 39, 68, 0.1);
+  transform: rotate(-0.5deg);
+}
+
+.card-inner h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--secondary);
+  margin-bottom: 1.5rem;
+}
+
+.card-inner p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.card-inner p:last-child {
+  margin-bottom: 0;
+}
+
+.card-inner strong {
+  color: var(--primary);
+}
+
+/* === About Card === */
+.postcard--about {
+  background: var(--bg);
+}
+
+/* === Building Card === */
+.postcard--building {
+  background: var(--card-linen);
+}
+
+.card-inner--alt {
+  transform: rotate(0.5deg);
+  background: white;
+}
+
+.build-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.build-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.build-emoji {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.build-item div p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.build-item strong {
+  font-size: 1.05rem;
+}
+
+/* === Section Titles === */
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  color: var(--secondary);
+  margin-bottom: 0.25rem;
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  color: var(--accent);
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+
+/* === Shayari Card === */
+.postcard--shayari {
+  background: var(--bg);
+}
+
+.shayari-cards {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 900px;
+}
+
+.shayari-card {
+  background: var(--card-parchment);
+  border: 1px solid rgba(45, 143, 111, 0.15);
+  border-radius: 12px;
+  padding: 2rem 2rem 1.5rem;
+  width: 280px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(26, 39, 68, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.shayari-card:nth-child(1) { transform: rotate(-1.5deg); }
+.shayari-card:nth-child(2) { transform: rotate(0.5deg); }
+.shayari-card:nth-child(3) { transform: rotate(-0.8deg); }
+
+.shayari-card:hover {
+  box-shadow: 0 8px 30px rgba(26, 39, 68, 0.15);
+}
+
+.shayari-text {
+  font-family: var(--font-shayari);
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--secondary);
+  margin-bottom: 1.25rem;
+}
+
+/* === Play Button === */
+.play-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--primary);
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.2s;
+  animation: pulse-glow-green 3s infinite;
+}
+
+.play-btn:hover {
+  transform: scale(1.1);
+  background: var(--secondary);
+}
+
+@keyframes pulse-glow-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(45, 143, 111, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(45, 143, 111, 0); }
+}
+
+/* === Sound Wave Animation === */
+.sound-wave {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 24px;
+  margin-top: 0.75rem;
+}
+
+.sound-wave span {
+  width: 3px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 2px;
+  animation: wave 1s ease-in-out infinite;
+}
+
+.sound-wave span:nth-child(1) { animation-delay: 0s; }
+.sound-wave span:nth-child(2) { animation-delay: 0.1s; }
+.sound-wave span:nth-child(3) { animation-delay: 0.2s; }
+.sound-wave span:nth-child(4) { animation-delay: 0.3s; }
+.sound-wave span:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes wave {
+  0%, 100% { height: 8px; }
+  50% { height: 20px; }
+}
+
+/* === Song Card === */
+.postcard--song {
+  background: linear-gradient(135deg, var(--secondary), #0d1b2a);
+  color: #f0f7f4;
+}
+
+.song-player {
+  text-align: center;
+  max-width: 380px;
+}
+
+.song-cover {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 1.5rem;
+  border-radius: 12px;
+  background: var(--card-chai);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.song-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.song-cover-placeholder {
+  font-size: 4rem;
+  color: var(--primary);
+}
+
+.song-title {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.song-artist {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+}
+
+.song-controls {
+  margin-bottom: 1.5rem;
+}
+
+.song-play-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  background: var(--primary);
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.2s;
+  animation: pulse-glow-green 3s infinite;
+}
+
+.song-play-btn:hover {
+  transform: scale(1.1);
+  background: var(--accent);
+}
+
+/* === Song Progress Bar === */
+.song-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.song-time {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  font-variant-numeric: tabular-nums;
+  min-width: 32px;
+}
+
+.song-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+.song-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+
+/* === Sports Card === */
+.postcard--sports {
+  background: var(--card-linen);
+}
+
+/* === Polaroid Photos === */
+.polaroids {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 800px;
+}
+
+.polaroid {
+  background: white;
+  padding: 0.75rem 0.75rem 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(26, 39, 68, 0.12);
+  transform: rotate(var(--rotation, 0deg));
+  transition: transform 0.3s;
+  width: 210px;
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.05);
+  z-index: 2;
+}
+
+.polaroid-image {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--card-parchment);
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.polaroid-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.polaroid-placeholder {
+  font-size: 3rem;
+}
+
+.polaroid-caption {
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 0.75rem 0.25rem;
+  color: var(--accent);
+  font-style: italic;
+}
+
+/* === Wanderlust Card === */
+.postcard--wanderlust {
+  background: var(--bg);
+  overflow-y: auto;
+  scroll-snap-align: start;
+  height: auto;
+  min-height: 100vh;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.polaroids--grid {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  gap: 1.25rem;
+  max-width: 880px;
+}
+
+/* === Connect Card === */
+.postcard--connect {
+  background: linear-gradient(135deg, var(--card-chai), var(--card-parchment));
+}
+
+.connect-card {
+  text-align: center;
+  transform: rotate(0deg);
+}
+
+.connect-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.connect-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  background: white;
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 500;
+  box-shadow: 0 2px 10px rgba(26, 39, 68, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.connect-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(26, 39, 68, 0.15);
+}
+
+.connect-link img {
+  width: 20px;
+  height: 20px;
+}
+
+.connect-signoff {
+  margin-top: 1.5rem;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--accent);
+  font-style: italic;
+}
+
+/* === Accent Photos (floating postcards on sections) === */
+.accent-photo {
+  position: absolute;
+  width: 140px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(26, 39, 68, 0.15);
+  transform: rotate(var(--rotation, 0deg));
+  background: white;
+  padding: 5px 5px 0;
+  z-index: 2;
+  opacity: 0.85;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.accent-photo:hover {
+  opacity: 1;
+  transform: rotate(0deg) scale(1.1);
+  z-index: 10;
+}
+
+.accent-photo img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.accent-photo--right {
+  right: 5%;
+  bottom: 10%;
+}
+
+.accent-photo--left {
+  left: 5%;
+  bottom: 15%;
+}
+
+/* === Mobile Responsive === */
+@media (max-width: 768px) {
+  .postcard {
+    padding: 2rem 1.5rem;
+  }
+
+  .social-dock {
+    left: auto;
+    right: 0.75rem;
+    top: auto;
+    bottom: 1rem;
+    transform: none;
+    flex-direction: row;
+    gap: 0.75rem;
+    background: rgba(240, 247, 244, 0.95);
+    padding: 0.5rem 0.75rem;
+    border-radius: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  .social-icon {
+    opacity: 0.8;
+    width: 36px;
+    height: 36px;
+  }
+
+  .hero-greeting {
+    font-size: 1.5rem;
+  }
+
+  .card-inner {
+    padding: 2rem 1.5rem;
+  }
+
+  .shayari-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .shayari-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .shayari-card:nth-child(1),
+  .shayari-card:nth-child(2),
+  .shayari-card:nth-child(3) {
+    transform: rotate(0deg);
+  }
+
+  .polaroids {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .polaroids--grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+    gap: 1rem;
+  }
+
+  .polaroid {
+    width: 80%;
+    max-width: 260px;
+  }
+
+  .polaroids--grid .polaroid {
+    width: 100%;
+  }
+
+  .accent-photo {
+    display: none;
+  }
+
+  .connect-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .build-items {
+    gap: 1rem;
+  }
+
+  .song-cover {
+    width: 160px;
+    height: 160px;
+  }
+}
